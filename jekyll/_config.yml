@@ -1,0 +1,11 @@
+# Site settings
+title: "Jeff Bellegarde's blog"
+email: bellegar@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  "Whatever stuff I'm working on at the moment."
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://http://jeffbellegarde.github.io/" # the base hostname & protocol for your site
+github_username:  JeffBellegarde
+
+# Build settings
+markdown: kramdown

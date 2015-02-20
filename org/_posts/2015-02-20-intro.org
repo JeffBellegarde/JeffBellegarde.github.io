@@ -1,0 +1,25 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil timestamps:t
+#+BEGIN_HTML
+---
+layout: post
+title: intro
+---
+#+END_HTML
+* This is the first entry
+
+Some contentx
+
+
+
+** A subheadinng
+
+subheading content
+
+** Example code
+#+begin_src emacs-lisp
+(something something)
+#+end_src
+
+
