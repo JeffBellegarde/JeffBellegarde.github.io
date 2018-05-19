@@ -1,5 +1,13 @@
+---
+---
+{% if jekyll.environment == "test" %}
+var DATA_ROOT="ldata";
+{% else %}
+var DATA_ROOT="data";
+{% endif %}
+
 function season_path(season_id) {
-    return 'ldata/'+season_id+'/season.json';
+    return DATA_ROOT+'/'+season_id+'/season.json';
 }
 
 function table_cell(value) {

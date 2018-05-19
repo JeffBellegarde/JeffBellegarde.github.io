@@ -1,3 +1,11 @@
+---
+---
+{% if jekyll.environment == "test" %}
+var DATA_ROOT="ldata";
+{% else %}
+var DATA_ROOT="data";
+{% endif %}
+
 function playerReady() {
     //alert("ready");
 }
@@ -259,7 +267,7 @@ function summary_path(round_id) {
     var a_parts = parts[0].split('_');
     var b_parts = parts[0].split('_');
     var c_parts = parts[0].split('_');
-    return 'data/'+a_parts[0]+'/'+parts[0]+'/'+parts[1]+'/'+parts[2]+'_summary.json';
+    return DATA_ROOT+'/'+a_parts[0]+'/'+parts[0]+'/'+parts[1]+'/'+parts[2]+'_summary.json';
 }
 $( document ).ready(function() {
     $('#image_area').svg();
