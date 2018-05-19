@@ -262,7 +262,7 @@ function summary_path(round_id) {
     return 'data/'+a_parts[0]+'/'+parts[0]+'/'+parts[1]+'/'+parts[2]+'_summary.json';
 }
 $( document ).ready(function() {
-$('#image_area').svg();
+    $('#image_area').svg();
     var urlParams = new URLSearchParams(window.location.search);
     $.getJSON(summary_path(urlParams.get('matchId')), function(data) {
         round_data = data; //Intentionally leaked for debugging aid.
