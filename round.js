@@ -1,10 +1,4 @@
----
----
-{% if jekyll.environment == "test" %}
-var DATA_ROOT="ldata";
-{% else %}
 var DATA_ROOT="data";
-{% endif %}
 
 function playerReady() {
     //alert("ready");
@@ -272,6 +266,7 @@ function summary_path(round_id) {
 $( document ).ready(function() {
     $('#image_area').svg();
     var urlParams = new URLSearchParams(window.location.search);
+    DATA_ROOT=urlParams.get('data');
     $.getJSON(summary_path(urlParams.get('matchId')), function(data) {
         round_data = data; //Intentionally leaked for debugging aid.
         var options = {

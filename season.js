@@ -1,10 +1,4 @@
----
----
-{% if jekyll.environment == "test" %}
-var DATA_ROOT="ldata";
-{% else %}
 var DATA_ROOT="data";
-{% endif %}
 
 function season_path(season_id) {
     return DATA_ROOT+'/'+season_id+'/season.json';
@@ -18,6 +12,9 @@ function table_cell(value) {
 
 $( document ).ready(function() {
     var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('data')) {
+        DATA_ROOT=urlParams.get('data');
+    }
     $.getJSON(season_path(urlParams.get('season')), function(data) {
         var season_table = $('#season_table');
         for (stage_num in data.stages) {
