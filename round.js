@@ -263,10 +263,13 @@ function summary_path(round_id) {
     var c_parts = parts[0].split('_');
     return DATA_ROOT+'/'+a_parts[0]+'/'+parts[0]+'/'+parts[1]+'/'+parts[2]+'_summary.json';
 }
+
 $( document ).ready(function() {
     $('#image_area').svg();
     var urlParams = new URLSearchParams(window.location.search);
-    DATA_ROOT=urlParams.get('data');
+    if (urlParams.has('data')) {
+        DATA_ROOT=urlParams.get('data');
+    }
     $.getJSON(summary_path(urlParams.get('matchId')), function(data) {
         round_data = data; //Intentionally leaked for debugging aid.
         var options = {
