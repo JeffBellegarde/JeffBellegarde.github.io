@@ -59,8 +59,10 @@
 .team_health {
     fill:none;
     stroke: red;
-    stroke-width: 1
+    stroke-width: 1;
+    display: none
 }
+
 .progress_target_line {
     stroke: gray;
     stroke-width: 1;
