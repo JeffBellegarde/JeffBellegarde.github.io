@@ -98,6 +98,17 @@ function sort2(a, b) {
     list.sort();
     return list
 }
+
+function draw_skips(svg, group, skips) {
+    var skips_g = svg.group(group, 'skips');
+    for (skip_id in skips) {
+        var skip = skips[skip_id];
+        console.log(skip);
+        var left = secs_to_x(skip[0]-3) // 3 secs before the skip indicator shows.
+        svg.rect(group, left, 1, secs_to_x(skip[1])-left, GRAPH_HEIGHT-2, {class_:'replay_area'});
+    }
+}
+
 function draw_fights(svg, group, fights) {
     var fights_g = svg.group(group, 'fights');
     for (fight_id in fights) {
@@ -197,7 +208,7 @@ function draw_team_health(svg, group, team_health) {
     //    total_health_percent = total_health_percent.concat([team_health['visitor'][i][0], (team_health['visitor'][i][1]+team_health['home'][i][1])/(12*3)]);
     //    console.log(total_health_percent);
     // }
-    console.log(total_health_percent);
+    //console.log(total_health_percent);
     draw_timeline(svg, g, total_health_percent, percent_to_y, "team_health");
 }
 
@@ -221,6 +232,7 @@ function draw_graph(data) {
         svg.line(minute_g, line_x, 0, line_x, GRAPH_HEIGHT, {class:'minute_ref_line'});
         svg.text(minute_g, line_x, GRAPH_HEIGHT+20, (pixels/(PIXELS_PER_SEC * 60)+':00'));
     }
+    draw_skips(svg, g, data.skip_areas);
     draw_fights(svg, g, data.fights);
     draw_pushes(svg, g, data.pushes);
     draw_completion_lines(svg, g, data.cleared_checkpoints);

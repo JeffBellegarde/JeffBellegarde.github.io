@@ -74,6 +74,12 @@
     stroke-width: 1
 }
 
+.replay_area {
+    fill:lightgray;
+    stroke: lightgray;
+    stroke-width: 0
+}
+
 .Table {
     display: table;
 }
